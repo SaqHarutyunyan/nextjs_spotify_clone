@@ -5,7 +5,7 @@ import { FaHeart, FaHome, FaPlus, FaPodcast, FaSearch } from "react-icons/fa";
 
 const SideBar = () => {
     return (
-        <div className=" bg-black h-screen w-64 text-white p-4 space-y-6">
+        <div className=" bg-black w-[300px] h-screen  text-white p-4 space-y-6">
             {/* Spotify Logo */}
             <div className="flex items-center space-x-2 mb-4">
                 <Image

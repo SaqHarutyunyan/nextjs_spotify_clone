@@ -6,8 +6,8 @@ import { FaPlay } from "react-icons/fa";
 interface Album {
     id: string;
     name: string;
-    artist: string;
-    images: { url: string; width: number; height: number }[];
+    artist?: string;
+    images?: { url: string; width: number; height: number }[];
 }
 
 interface AlbumsProps {

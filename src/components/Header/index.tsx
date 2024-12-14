@@ -6,7 +6,7 @@ import {
     SPOTIFY_SCOPE,
 } from "@/app/config/spotify";
 import { setAccessToken } from "@/app/lib/slices/authSlice";
-import { setLoading, setQuery, setResults } from "@/app/lib/slices/searchSlice"; // Ավելացրու քո searchSlice action
+import { setLoading, setQuery, setResults } from "@/app/lib/slices/searchSlice";
 import { RootState } from "@/app/lib/store";
 import React, { useEffect } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -63,7 +63,6 @@ const Header = () => {
 
                 const data = await response.json();
                 dispatch(setAccessToken(data.access_token));
-                console.log("Access Token:", data.access_token);
             };
 
             fetchAccessToken();
@@ -78,10 +77,8 @@ const Header = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log("Search Query:", query);
-        // Այստեղ կարող ես անել fetch, եթե անհրաժեշտ է։
         const fetchAlbums = async () => {
-            dispatch(setLoading(true)); // Բեռնումի ընթացքում փոփոխում ենք loading վիճակը
+            dispatch(setLoading(true));
 
             try {
                 const response = await fetch(
@@ -98,7 +95,6 @@ const Header = () => {
                 }
 
                 const data = await response.json();
-                console.log("Fetched Data:", data);
 
                 // Համոզվիր, որ data-ի մեջ կա albums.items
                 dispatch(setResults(data.albums?.items || []));

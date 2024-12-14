@@ -2,11 +2,12 @@
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/app/lib/store";
+import { AppDispatch, RootState } from "@/app/lib/store";
 import { useParams } from "next/navigation";
 import { fetchAlbumDetails } from "@/app/lib/slices/albumSlice";
 import "@/app/globals.css";
 import Image from "next/image";
+import { setCurrentTrack } from "@/app/lib/slices/playerSlice";
 
 interface AlbumTrack {
     id: string;
@@ -19,7 +20,7 @@ interface AlbumTrack {
 
 const AlbumPage = () => {
     const { id } = useParams(); // Album-ի ID-ն URL-ից
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
         if (id) {
@@ -38,7 +39,6 @@ const AlbumPage = () => {
     const loading = useSelector((state: RootState) => state.album.loading);
 
     if (loading) return <div>Loading...</div>;
-    console.log(album);
     return (
         <div className="h-[70vh] overflow-scroll scrollbar-hidden p-4">
             <div className="w-full flex items-center gap-9">
@@ -72,6 +72,9 @@ const AlbumPage = () => {
                                 <tr
                                     key={track.id}
                                     className="text-gray-400 hover:bg-[#282828] cursor-pointer"
+                                    onClick={() =>
+                                        dispatch(setCurrentTrack(track.id))
+                                    }
                                 >
                                     <td className="py-2 px-3  rounded-t-md rounded-bl-md">
                                         {i + 1}

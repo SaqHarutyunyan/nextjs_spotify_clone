@@ -36,7 +36,6 @@ const UserMenu = () => {
 
     return (
         <div className="relative inline-block text-left z-50">
-            {/* User button */}
             <div
                 className="flex items-center cursor-pointer space-x-2 p-2 bg-black rounded-3xl"
                 onClick={toggleMenu}

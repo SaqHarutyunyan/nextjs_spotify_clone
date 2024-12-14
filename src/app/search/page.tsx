@@ -21,7 +21,6 @@ export interface Album {
 
 const Search = () => {
     const results = useSelector((state: RootState) => state.search.results);
-    console.log(results, "search results");
 
     return (
         <div className="h-[70vh] overflow-scroll no-scrollbar  px-4">

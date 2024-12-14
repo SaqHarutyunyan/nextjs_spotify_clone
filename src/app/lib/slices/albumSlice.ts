@@ -28,7 +28,6 @@ export const fetchAlbumDetails = createAsyncThunk(
         if (!response.ok) {
             throw new Error("Failed to fetch album details");
         }
-        console.log(response);
         return response.json();
     }
 );
