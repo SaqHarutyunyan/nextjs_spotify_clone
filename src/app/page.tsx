@@ -12,6 +12,7 @@ export default function Home() {
     const [albums2, setAlbums2] = useState<[]>([]);
     const [albums3, setAlbums3] = useState<[]>([]);
     const [albums4, setAlbums4] = useState<[]>([]);
+    const [albums5, setAlbums5] = useState<[]>([]);
 
     useEffect(() => {
         if (accessToken) {
@@ -19,6 +20,7 @@ export default function Home() {
             fetchVnasAlbums();
             fetchAramiAlbums();
             fetchGufAlbums();
+            fetchRencarnationAlbums();
         }
     }, [accessToken]);
 
@@ -70,10 +72,22 @@ export default function Home() {
         const data = await albumsResponse.json();
         setAlbums4(data.albums.items);
     };
+    const fetchRencarnationAlbums = async () => {
+        const albumsResponse = await fetch(
+            `https://api.spotify.com/v1/search?q=reincarnation&type=album`,
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            }
+        );
+        const data = await albumsResponse.json();
+        setAlbums5(data.albums.items);
+    };
 
     return (
         <div className="w-full flex flex-col h-[70vh] overflow-hidden">
-            <h1>Miyagis Albums</h1>
+            <h1 className="mb-5 font-bold">Popular songs</h1>
             <div className="overflow-scroll scrollbar-hidden-home">
                 <div className="w-full h-[300px]  relative">
                     <SliderSwiper albums={albums} />
@@ -86,6 +100,9 @@ export default function Home() {
                 </div>
                 <div className="w-full h-[300px]  relative">
                     <SliderSwiper albums={albums4} />
+                </div>
+                <div className="w-full h-[300px]  relative">
+                    <SliderSwiper albums={albums5} />
                 </div>
             </div>
         </div>

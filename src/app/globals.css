@@ -71,3 +71,26 @@ body {
     -ms-overflow-style: none; /* Internet Explorer 10+ */
     scrollbar-width: none; /* Firefox */
 }
+
+.scrollbar-hidden-favorite::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hidden-favorite {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+.liked_song {
+    border-radius: 1px;
+
+    background: linear-gradient(
+        135deg,
+        rgb(64, 0, 244) 0%,
+        rgb(96, 58, 237) 22.483%,
+        rgb(124, 110, 230) 46.931%,
+        rgb(151, 159, 225) 65.709%,
+        rgb(162, 179, 222) 77.684%,
+        rgb(173, 200, 220) 88.933%,
+        rgb(192, 236, 215) 100%
+    );
+}
