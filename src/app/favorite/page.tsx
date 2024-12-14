@@ -69,7 +69,7 @@ export default function FavoriteSongs() {
 
     return (
         <div className="w-full flex flex-col items-center">
-            <div className="w-full h-[70vh] overflow-hidden scrollbar-hidden-favorite p-4">
+            <div className="w-full h-[70vh] overflow-y-scroll scrollbar-hidden-favorite p-4">
                 {favoriteSongs.length > 0 && (
                     <div className="w-full flex items-center gap-9">
                         <div className="liked_song w-[200px] h-[200px] rounded-2xl shadow-md flex items-center justify-center">
@@ -89,10 +89,18 @@ export default function FavoriteSongs() {
                     <table className="w-full table-auto">
                         <thead>
                             <tr className="text-gray-500 text-left">
-                                <th className="pb-2">#</th>
-                                <th className="pb-2">Название</th>
-                                <th className="pb-2">Исполнитель</th>
-                                <th className="pb-2">Длительность</th>
+                                <th className="pb-2 border-collapse border-b-[1px]">
+                                    #
+                                </th>
+                                <th className="pb-2 border-collapse border-b-[1px]">
+                                    Название
+                                </th>
+                                <th className="pb-2 border-collapse border-b-[1px]">
+                                    Исполнитель
+                                </th>
+                                <th className="pb-2 border-collapse border-b-[1px]">
+                                    Длительность
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
